@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>DebtSolvers Client Stories</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Cormorant+Garamond:wght@300&display=swap">
+<style>
+/* Layout: matches debtsolver.ca (white page, centred thin-D logo, wide-tracked uppercase headings, blush panels, red accent, black pill buttons). Single light look on purpose, like the main site. */
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --ink: #1b1b1b;
+  --muted: #5e5e5e;
+  --line: #ececec;
+  --accent: #c8102e;
+  --accent-soft: #fdf1f1;
+  --star: #c8102e;
+  --display: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --body: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  --logo: "Cormorant Garamond", Didot, "Bodoni 72", Georgia, serif;
+  color-scheme: light;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-weight: 300; font-size: 16px; line-height: 1.7; }
+.wrap { max-width: 1000px; margin: 0 auto; padding-block: 36px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.logo { display: grid; justify-items: center; gap: 2px; margin-bottom: 34px; text-decoration: none; color: var(--ink); }
+.logo .d { font-family: var(--logo); font-weight: 300; font-size: 76px; line-height: .9; }
+.logo .w { font-size: 10px; letter-spacing: .28em; font-weight: 400; }
+header { display: grid; gap: 14px; justify-items: center; text-align: center; background: var(--accent-soft);
+  padding: 40px 24px; margin-bottom: 44px; }
+.brand { font-weight: 500; font-size: 13px; letter-spacing: .3em; text-transform: uppercase; color: var(--accent); }
+h1 { font-weight: 400; font-size: clamp(24px, 4.4vw, 34px); line-height: 1.3; letter-spacing: .08em; text-transform: uppercase; margin: 0; max-width: 680px; text-wrap: balance; }
+.lede { color: var(--muted); margin: 0; font-size: 17px; max-width: 560px; }
+.btn { display: inline-block; background: #111111; color: #ffffff; text-decoration: none; border-radius: 999px;
+  padding: 14px 30px; font-weight: 500; font-size: 13px; letter-spacing: .24em; text-transform: uppercase; }
+.wall { columns: 2 380px; column-gap: 20px; }
+.review { break-inside: avoid; background: var(--surface); border: 1px solid var(--line); border-radius: 4px;
+  padding: 24px 24px 18px; margin: 0 0 20px; display: grid; gap: 12px; }
+.stars { color: var(--star); font-size: 18px; letter-spacing: 2px; line-height: 1; }
+.review blockquote { margin: 0; font-size: 16px; color: #333333; }
+.review blockquote p { margin: 0 0 10px; }
+.review blockquote p:last-child { margin-bottom: 0; }
+.who { display: flex; align-items: center; gap: 12px; padding-top: 4px; border-top: 1px solid var(--line); }
+.who .av { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
+  display: grid; place-items: center; font-weight: 500; font-size: 13px; flex: none; margin-top: 10px; }
+.who div { min-width: 0; margin-top: 10px; }
+.who b { display: block; font-weight: 500; }
+.who span { color: var(--muted); font-size: 14px; }
+section.next { margin-top: 28px; display: grid; gap: 16px; }
+h2 { font-weight: 400; font-size: clamp(22px, 3.6vw, 30px); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin: 0; text-wrap: balance; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.steps li { background: var(--accent-soft); border-radius: 12px; padding: 16px 18px; display: grid; gap: 4px; }
+.steps b { font-family: var(--display); font-weight: 700; color: var(--accent); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+.contact { background: var(--accent-soft); border: 0; border-radius: 4px; text-align: center; justify-items: center; padding: 20px 22px; display: grid; gap: 6px; }
+.contact p { margin: 0; }
+.contact .line { font-weight: 500; letter-spacing: .04em; user-select: all; }
+.voices { display: grid; gap: 16px; margin-bottom: 40px; }
+.voice-grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+.voice { background: var(--accent-soft); border-radius: 4px; padding: 20px 22px; display: grid; gap: 14px; min-width: 0; }
+.vhead { display: flex; align-items: center; gap: 12px; }
+.vhead .av { width: 40px; height: 40px; border-radius: 50%; background: #111111; color: #ffffff;
+  display: grid; place-items: center; font-weight: 500; font-size: 13px; flex: none; }
+.vhead b { display: block; font-weight: 500; }
+.vhead span { color: var(--muted); font-size: 14px; }
+.voice audio { width: 100%; }
+.voice details summary { cursor: pointer; color: var(--accent); font-weight: 500; letter-spacing: .04em; }
+.voice details p { margin: 10px 0 0; font-style: italic; }
+.wall-h { margin-bottom: 18px; }
+a { color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+.fine { color: var(--muted); font-size: 13.5px; line-height: 1.5; margin-top: 28px; max-width: 760px; }
+</style>
+</head><body>
+
+
+<div class="wrap">
+  <div class="logo" aria-label="DebtSolvers"><span class="d">D</span><span class="w">DEBTSOLVERS</span></div>
+  <header>
+    <div class="brand">Client stories</div>
+    <h1>You're not the first to start fresh, and you won't be the last.</h1>
+    <p class="lede">Welcome aboard. Here's what other Canadians said after working with our team, in their own words.</p>
+  </header>
+
+  <section class="voices" aria-labelledby="voices-h">
+    <h2 id="voices-h">Hear it from our clients</h2>
+    <div class="voice-grid">
+      <article class="voice">
+        <div class="vhead"><span class="av" aria-hidden="true">SC</span><div><b>Susan C.</b><span>Client voice note · 0:48</span></div></div>
+        <audio controls preload="none" src="susan-c.mp3"></audio>
+        <details>
+          <summary>Read the transcript</summary>
+          <p>"I'd lie awake just doing math in my head. Rent, daycare, the loan, car loan, and then the high-interest payments I had to take just to keep up with everything. Every month it would just get harder and harder to pay, every paycheque just going towards these debts and my balance not moving. I didn't want my kids to see me stressed. I used to cry in the car before I went inside… Then my friend told me to call DebtSolvers Canada, and honestly, I cannot thank them enough. They helped me with everything. Trust me, I know the process is scary, but… I promise you'll get help."</p>
+        </details>
+      </article>
+      <article class="voice">
+        <div class="vhead"><span class="av" aria-hidden="true">AD</span><div><b>Amara D.</b><span>Client voice note · 1:08</span></div></div>
+        <audio controls preload="none" src="amara-d.mp3"></audio>
+        <details>
+          <summary>Read the transcript</summary>
+          <p>"Okay, so I don't even know where to begin… I was in a bad divorce situation, and I thought I had everything under control, but I didn't. I wasn't really in control of my finances. I had a couple of credit cards, and I took one of those quick loans… They said it would give me like $1,000 and I'd get it right away. I just didn't realize what the interest was like. 40 percent. And I know it's stupid of me… I didn't know what to do. And then I saw a DebtSolvers ad on Facebook. I really had nothing else to lose. At first I was pretty skeptical of the whole process, but honestly, I just kept up with my payments, I trusted them, and it worked out for me at the end of the day. Thank you, that's all. I hope you guys the best. I hope people really give you a shot."</p>
+        </details>
+      </article>
+      <article class="voice">
+        <div class="vhead"><span class="av" aria-hidden="true">AF</span><div><b>Anthony F.</b><span>Client voice note · 1:16</span></div></div>
+        <audio controls preload="none" src="client-2.mp3"></audio>
+        <details>
+          <summary>Read the transcript</summary>
+          <p>"I'm not usually the type of guy to ask for help. I work full time and I pay my bills on time, all the time… loans with crazy interest, and it kind of buried me. I had like five different payments with different companies, and payments were just coming out of my account. On top of that, collection calls… Every time I saw an unknown number, my stomach would completely drop. Then finally my wife told me about this company that's all over Canada. Honestly, I've never been more relieved. At first I was pretty scared, but as time went on, they genuinely did help me… I didn't realize how heavy this whole pressure was until DebtSolvers took it off me. So thank you guys so much. I hope this helps you guys."</p>
+        </details>
+      </article>
+    </div>
+  </section>
+
+  <h2 class="wall-h">What clients wrote on Google</h2>
+  <main class="wall" aria-label="Client reviews">
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote>
+        <p>I delt with Ron from start . I had a lot of anxiety going into this with reading the bad reviews. However I noticed all were replied to. I work with public so really understand some people can not be helped.</p>
+        <p>He always answered my questions right away and helped put my mind at ease. This is the first weekend in months I can enjoy thanks to Debtsolvers and their staff like Ron.</p>
+        <p>I am moving ahead with the process and now dealing with admin and Brandon, he is awesome as well and I am free to reach back to Ron at any time. They cut my debt by 2/3 and now payback at 0% not those payday loan crazy interest rates. Thank you so much for all your help and allowing me to ask endless questions, and treating me with kindness and respect .</p>
+      </blockquote>
+      <div class="who"><span class="av" aria-hidden="true">GC</span><div><b>Gerard C.</b><span>Google review · Jul 2025</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Honestly, Debt Solver has been a big help. I can finally breathe again knowing my debts are lower and my payments are affordable. A big thanks to Brandon and his team</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">AA</span><div><b>Avia A.</b><span>Google review · Oct 2025</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote>
+        <p>I went through a rough time during COVID and had to take out some loans just to cover my expenses during that difficult period. Eventually, I started struggling to pay them back and felt like I was drowning in debt.</p>
+        <p>DebtSolvers Canada helped me get into a much better financial position. Their service was simple, clear, and very straightforward throughout the entire process. The team was extremely helpful and always patient whenever I had questions or concerns. They took the time to explain everything and made sure I understood each step.</p>
+        <p>I really appreciate their support and professionalism. I highly recommend DebtSolvers Canada to anyone who needs help dealing with their debts.</p>
+      </blockquote>
+      <div class="who"><span class="av" aria-hidden="true">JT</span><div><b>Jacob T.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Thank you Debtsolvers for helping get my financial situation to be a positive one. You have walked me through step by step. I can finally breathe. You have excellent service, quick turnaround when I had a question. Definitely highly recommend.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">CB</span><div><b>CJ B.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>I am so grateful to have come across this debt solving company. They are very professional, efficient and friendly to speak with! Thank you DebtSolver Canada. I'm so excited to get to financial security, with your help!</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">MG</span><div><b>Monique G.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Excellent customer service. They are always there to help or answer any questions you may have. I recommend them to anyone needing help.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">FR</span><div><b>Franklin R.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>My experience has been excellent. The staff are not only professional but also very supportive and approachable. They take the time to explain each step clearly which makes the process feel much less overwhelming.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">BA</span><div><b>Bleona A.</b><span>Google review · Aug 2025</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Very easy process , and such professional staff at DebtSolvers who have always had my back and made sure everything went through smoothly. They answered all my questions and guided me throughout it all from start to finish</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">MA</span><div><b>Mohammed A.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Debtsolvers has been the financial rock I needed. They are with you every step they are an amazing company and team. Thank you for everything.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">MS</span><div><b>Maria S.</b><span>Google review · Aug 2025</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Thank you debtsolvers for making my life easier. It was really hard having these debts but you got it all cleared in due time.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">VE</span><div><b>Victor E.</b><span>Google review · Aug 2025</span></div></div>
+    </article>
+  </main>
+
+  <section class="next" aria-label="Contact">
+    <div class="contact">
+      <p>Questions at any point? We're here.</p>
+      <p class="line">437-836-9854 · admin@debtsolver.ca</p>
+    </div>
+  </section>
+
+  <p class="fine">Voice notes are from real clients, shared with their permission; transcripts are lightly cleaned up for reading and may contain small errors. Reviews are public Google reviews, shown as written, with the reviewer's first name and last initial. Individual results vary. DebtSolvers Canada is not a Licensed Insolvency Trustee; consumer proposals are filed and administered by a Licensed Insolvency Trustee, and your creditors decide the final terms.</p>
+</div>
+
+</body></html>
