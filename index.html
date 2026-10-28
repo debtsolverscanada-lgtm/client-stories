@@ -44,6 +44,11 @@ h1 { font-weight: 400; font-size: clamp(24px, 4.4vw, 34px); line-height: 1.3; le
 .review .proof { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
 .review .proof img { width: 100%; height: auto; border-radius: 4px; border: 1px solid var(--line); display: block; }
 .review .proof-note { font-size: 13px; color: #666666; margin: 6px 0 0; }
+.more-stars { max-width: 1100px; margin: 8px auto 0; padding: 0 16px; }
+.more-stars h3 { font-size: 15px; font-weight: 600; margin: 0 0 10px; color: #333333; }
+.more-stars ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.more-stars li { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 6px 10px; font-size: 14px; }
+.more-stars li span { color: var(--accent, #c8102e); margin-right: 6px; letter-spacing: 1px; }
 .who { display: flex; align-items: center; gap: 12px; padding-top: 4px; border-top: 1px solid var(--line); }
 .who .av { width: 36px; height: 36px; border-radius: 50%; background: var(--accent-soft); color: var(--accent);
   display: grid; place-items: center; font-weight: 500; font-size: 13px; flex: none; margin-top: 10px; }
@@ -297,7 +302,50 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-
       <blockquote><p>Great help with all my payday loans! I saved me from interest</p></blockquote>
       <div class="who"><span class="av" aria-hidden="true">D</span><div><b>Danyal</b><span>Google review</span></div></div>
     </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>I've experienced nothing but prompt communication and service from these lovely folks.</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">S</span><div><b>Shoshin</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>A great team that displays a high degree of professionalism and understanding towards client needs. Absolutely recommend!</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">AP</span><div><b>Aahna P.</b><span>Google review</span></div></div>
+    </article>
+
+    <article class="review">
+      <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+      <blockquote><p>Highly professional and easy to work with, got what I needed done and couldn't thank them enough. Would highly recommend!</p></blockquote>
+      <div class="who"><span class="av" aria-hidden="true">JP</span><div><b>Josh P.</b><span>Google review</span></div></div>
+    </article>
   </main>
+
+  <section class="more-stars" aria-label="More 5-star ratings">
+    <h3>19 more clients rated us 5 stars on Google</h3>
+    <ul>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Christian F.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Zane B.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Keith</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Tala Z.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Fadila A.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Md M.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Kerobima A.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Vasantha P.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Tejas M.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Yebise S.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Badsha K.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Umme L.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Kalema M.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Francisco A.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Sri O.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Srisupaagan S.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Timothy C.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Mehak B.</li>
+      <li><span aria-label="5 out of 5 stars">★★★★★</span>Jermaine P.</li>
+    </ul>
+  </section>
 
   <section class="next" aria-label="Contact">
     <div class="contact">
