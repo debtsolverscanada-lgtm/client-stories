@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DebtSolvers Financial | See If You Qualify</title>
+<meta name="description" content="Take the 10 second quiz to see if you qualify to cut your debt with DebtSolvers Financial. This is not a loan. Free and no obligation.">
+<meta name="theme-color" content="#071a33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#061328;--bg2:#0b2347;--ink:#ffffff;--muted:#a9bbd6;--line:rgba(255,255,255,.12);--card:rgba(255,255,255,.06);--card-hi:rgba(255,255,255,.11);--green:#22c55e;--green2:#4ade80;--teal:#2dd4bf;--blue:#3b82f6;--r:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Arial,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:radial-gradient(1200px 800px at 80% -10%,#123a73 0%,transparent 60%),radial-gradient(900px 700px at -10% 110%,#0d3b3a 0%,transparent 55%),linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;mix-blend-mode:screen;animation:float 18s ease-in-out infinite}
+.orb.a{width:420px;height:420px;background:#2563eb;top:-120px;right:-120px}
+.orb.b{width:360px;height:360px;background:#10b981;bottom:-140px;left:-120px;animation-duration:22s;animation-delay:-6s}
+.orb.c{width:260px;height:260px;background:#06b6d4;top:40%;left:55%;opacity:.35;animation-duration:26s;animation-delay:-12s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(40px,-30px) scale(1.08)}66%{transform:translate(-30px,25px) scale(.95)}}
+.grid{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 10%,transparent 70%);opacity:.35;animation:gridmove 30s linear infinite}
+@keyframes gridmove{to{background-position:44px 44px,44px 44px}}
+.spark{position:absolute;width:3px;height:3px;border-radius:50%;background:#bff7d6;box-shadow:0 0 10px #4ade80;opacity:0;animation:rise linear infinite}
+@keyframes rise{0%{transform:translateY(0);opacity:0}10%{opacity:.9}100%{transform:translateY(-110vh);opacity:0}}
+.wrap{position:relative;z-index:1;min-height:100%;display:flex;flex-direction:column;align-items:center;padding:22px 16px 40px}
+.top{width:100%;max-width:520px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;animation:drop .7s cubic-bezier(.2,.8,.2,1) both}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.2px}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--green),var(--teal));display:grid;place-items:center;box-shadow:0 8px 24px -6px rgba(34,197,94,.6)}
+.mark svg{width:20px;height:20px}
+.brand span{color:var(--green2)}
+.secure{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.secure i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(34,197,94,.7);animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(34,197,94,.6)}80%,100%{box-shadow:0 0 0 10px rgba(34,197,94,0)}}
+.hero{width:100%;max-width:520px;text-align:center;margin:6px 0 18px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(34,197,94,.12);border:1px solid rgba(74,222,128,.35);color:#bbf7d0;font-size:12.5px;font-weight:600;animation:drop .7s .1s both}
+h1{font-size:clamp(28px,7.4vw,40px);line-height:1.08;letter-spacing:-1px;font-weight:800;margin:14px 0 10px;animation:drop .8s .18s cubic-bezier(.2,.8,.2,1) both}
+h1 .amt{background:linear-gradient(90deg,#4ade80,#2dd4bf,#60a5fa,#4ade80);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite;display:inline-block}
+@keyframes shine{to{background-position:300% 0}}
+.sub{color:var(--muted);font-size:15.5px;line-height:1.5;animation:drop .8s .26s both}
+@keyframes drop{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+.card{position:relative;width:100%;max-width:520px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:22px 18px 20px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:0 30px 80px -30px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.12);animation:rise-in .9s .3s cubic-bezier(.2,.8,.2,1) both;overflow:hidden}
+.card::before{content:"";position:absolute;inset:-1px;border-radius:24px;padding:1px;background:conic-gradient(from var(--a,0deg),transparent 0 70%,rgba(74,222,128,.9) 80%,rgba(45,212,191,.9) 88%,transparent 95%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:spin 5s linear infinite;pointer-events:none}
+@property --a{syntax:'<angle>';inherits:false;initial-value:0deg}
+@keyframes spin{to{--a:360deg}}
+@keyframes rise-in{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:none}}
+.prog{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.bar{flex:1;height:8px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+.bar b{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--green),var(--teal));box-shadow:0 0 16px rgba(45,212,191,.7);transition:width .6s cubic-bezier(.2,.8,.2,1);position:relative}
+.bar b::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.6),transparent);animation:sweep 1.8s infinite}
+@keyframes sweep{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+.step-n{font-size:12.5px;color:var(--muted);font-weight:600;min-width:62px;text-align:right}
+.steps{position:relative}
+.step{display:none}
+.step.on{display:block;animation:slide-in .5s cubic-bezier(.2,.8,.2,1) both}
+.step.out{display:block;animation:slide-out .3s ease both}
+@keyframes slide-in{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:none}}
+@keyframes slide-out{to{opacity:0;transform:translateX(-40px)}}
+.q{font-size:21px;font-weight:800;letter-spacing:-.4px;line-height:1.25;margin-bottom:6px}
+.hint{color:var(--muted);font-size:14px;margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opts.two{grid-template-columns:1fr 1fr}
+.opt{position:relative;display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:16px;border-radius:14px;border:1px solid rgba(255,255,255,.14);background:var(--card);color:var(--ink);font:inherit;font-size:16px;font-weight:600;cursor:pointer;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;opacity:0;animation:pop .45s cubic-bezier(.2,.8,.2,1) forwards}
+.opt:hover{background:var(--card-hi);border-color:rgba(74,222,128,.5);transform:translateY(-2px)}
+.opt:active{transform:scale(.98)}
+.opt .ic{flex:none;width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:rgba(255,255,255,.08);font-size:18px}
+.opt .tick{margin-left:auto;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.3);transition:.2s;flex:none}
+.opt.sel{background:linear-gradient(135deg,rgba(34,197,94,.25),rgba(45,212,191,.18));border-color:var(--green2);box-shadow:0 10px 30px -12px rgba(34,197,94,.8)}
+.opt.sel .tick{border-color:var(--green2);background:var(--green2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23062814' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5L20 7'/%3E%3C/svg%3E") center/14px no-repeat}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+.fields{display:grid;gap:12px}
+.fields .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.f{position:relative}
+.f input{width:100%;padding:22px 14px 8px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06);color:var(--ink);font:inherit;font-size:16px;outline:none;transition:border-color .2s,background .2s,box-shadow .2s}
+.f label{position:absolute;left:14px;top:15px;color:var(--muted);font-size:15px;pointer-events:none;transition:.18s}
+.f input:focus,.f input:not(:placeholder-shown){background:rgba(255,255,255,.09)}
+.f input:focus{border-color:var(--green2);box-shadow:0 0 0 4px rgba(74,222,128,.15)}
+.f input:focus+label,.f input:not(:placeholder-shown)+label{top:7px;font-size:11.5px;color:#bbf7d0;font-weight:600}
+.f.bad input,.f.bad select{border-color:#f87171;box-shadow:0 0 0 4px rgba(248,113,113,.15);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+.cta{position:relative;overflow:hidden;width:100%;margin-top:16px;padding:17px;border:0;border-radius:14px;font:inherit;font-size:17px;font-weight:800;color:#052e16;cursor:pointer;background:linear-gradient(135deg,#4ade80,#22c55e 55%,#2dd4bf);box-shadow:0 16px 40px -14px rgba(34,197,94,.9),inset 0 1px 0 rgba(255,255,255,.5);transition:transform .15s,box-shadow .2s}
+.cta:hover{transform:translateY(-2px);box-shadow:0 22px 50px -14px rgba(34,197,94,1)}
+.cta:active{transform:scale(.985)}
+.cta::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-20deg);animation:glint 3s 1s infinite}
+@keyframes glint{0%{left:-60%}35%,100%{left:130%}}
+.cta[disabled]{opacity:.7;cursor:wait}
+.cta .spin{display:none;width:18px;height:18px;border:3px solid rgba(5,46,22,.3);border-top-color:#052e16;border-radius:50%;animation:rot .7s linear infinite;vertical-align:-3px;margin-right:8px}
+.cta.load .spin{display:inline-block}
+@keyframes rot{to{transform:rotate(360deg)}}
+.back{background:none;border:0;color:var(--muted);font:inherit;font-size:14px;margin-top:12px;cursor:pointer;display:none}
+.fine{margin-top:12px;color:#7f93b3;font-size:11.5px;line-height:1.5;text-align:center}
+.trust{width:100%;max-width:520px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px;animation:drop .8s .5s both}
+.t{padding:12px 8px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);text-align:center;font-size:12px;color:var(--muted);line-height:1.35}
+.t b{display:block;color:#fff;font-size:13.5px;margin-bottom:2px}
+.t .e{font-size:18px;display:block;margin-bottom:4px}
+.how{width:100%;max-width:520px;margin-top:22px;animation:drop .8s .6s both}
+.how h3{font-size:14px;color:var(--muted);text-transform:uppercase;letter-spacing:1.4px;font-weight:700;text-align:center;margin-bottom:12px}
+.how ol{list-style:none;display:grid;gap:10px}
+.how li{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);font-size:14.5px;color:#dbe6f6;line-height:1.45}
+.how li span{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:13px;color:#052e16;background:linear-gradient(135deg,var(--green2),var(--teal))}
+footer{margin-top:26px;color:#6f84a6;font-size:11.5px;text-align:center;line-height:1.6;max-width:520px}
+.done{text-align:center;padding:10px 4px 6px}
+.check{width:96px;height:96px;margin:6px auto 16px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#4ade80,#16a34a);display:grid;place-items:center;box-shadow:0 0 0 0 rgba(74,222,128,.6);animation:burst 1.4s ease-out both, ping2 2.2s 1.2s infinite}
+.check svg{width:48px;height:48px}
+.check path{stroke-dasharray:40;stroke-dashoffset:40;animation:draw .6s .35s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes burst{0%{transform:scale(0)}60%{transform:scale(1.12)}100%{transform:scale(1)}}
+@keyframes ping2{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}80%,100%{box-shadow:0 0 0 22px rgba(74,222,128,0)}}
+.done h2{font-size:24px;font-weight:800;letter-spacing:-.5px;margin-bottom:8px}
+.done p{color:var(--muted);font-size:15px;line-height:1.55}
+.done .call{display:inline-flex;margin-top:16px;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#fff;text-decoration:none;font-weight:700}
+.af{display:block;margin-top:4px;color:#86efac;font-size:12.5px}
+.f select{width:100%;padding:22px 40px 8px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a9bbd6' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 14px center/16px no-repeat;color:var(--ink);font:inherit;font-size:16px;outline:none;-webkit-appearance:none;appearance:none}
+.f select option{color:#0b2347}
+.f select:focus{border-color:var(--green2);box-shadow:0 0 0 4px rgba(74,222,128,.15)}
+.f.sel label{top:7px;font-size:11.5px;color:#bbf7d0;font-weight:600}
+.nope{font-size:56px;margin:4px 0 10px;animation:burst 1s ease-out both}
+.ghost{cursor:pointer;font:inherit}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:5}
+@media (max-width:380px){.fields .row{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.opt{opacity:1}}
+:root{--muted:#d5e2f3}
+.q{font-size:25px;line-height:1.3}
+.hint{font-size:17px;color:#d5e2f3}
+.opt{font-size:19px;padding:18px 16px;min-height:66px}
+.opt .tick{width:26px;height:26px}
+.sub{font-size:17.5px;color:#e6eef9}
+.eyebrow{font-size:15px;padding:8px 14px}
+.f input,.f select{font-size:19px;padding:28px 14px 10px}
+.f label{font-size:17px;top:20px}
+.f input:focus+label,.f input:not(:placeholder-shown)+label,.f.sel label{font-size:13.5px;top:8px}
+.cta{font-size:21px;padding:21px}
+.fine{font-size:13.5px;color:#c3d1e4}
+.step-n{font-size:15px;color:#e6eef9}
+.back{font-size:17px;color:#e6eef9}
+.t{font-size:14.5px;color:#d5e2f3}.t b{font-size:17px}
+.how li{font-size:17px;color:#eef3fa}
+footer{font-size:13.5px;color:#b3c2d9}
+.done p{font-size:18px;color:#e6eef9}.done h2{font-size:27px}
+.af{font-size:15.5px}
+.secure{font-size:13.5px}
+@media (max-width:380px){.opts.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="grid"></div><div class="orb a"></div><div class="orb b"></div><div class="orb c"></div><div id="sparks"></div></div>
+<canvas id="confetti"></canvas>
+<div class="wrap">
+<div class="top">
+<div class="brand"><div class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#052e16" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M7 21h10M4 7h16M4 7l-2.5 6a2.5 2.5 0 0 0 5 0L4 7zM20 7l-2.5 6a2.5 2.5 0 0 0 5 0L20 7z"/></svg></div><div>Debt<span>Solvers</span> Financial</div></div>
+<div class="secure"><i></i>Secure &amp; confidential</div>
+</div>
+<div class="hero">
+<div class="eyebrow">🚫 THIS IS NOT A LOAN</div>
+<h1>See If You Qualify To Remove Your <span class="amt">HIGH Interest</span> Debt!</h1>
+<p class="sub">Take control of your finances today. Our expert team is here to help you break free from debt stress and reclaim your peace of mind.</p>
+</div>
+<div class="card">
+<div class="prog"><div class="bar"><b id="bar"></b></div><div class="step-n" id="stepn">Step 1 of 5</div></div>
+<form id="f" class="steps" novalidate>
+<div class="step on" data-k="has_10k">
+<div class="q">Do you have $10,000+ in High Interest loans, Credit cards or Line of Credit?</div>
+<div class="hint">Credit cards, payday loans, lines of credit, CRA…</div>
+<div class="opts">
+<button type="button" class="opt" data-v="Yes"><span class="ic">✅</span>Yes<span class="tick"></span></button>
+<button type="button" class="opt" data-v="No" data-dq="small"><span class="ic">❌</span>No<span class="tick"></span></button>
+</div>
+</div>
+<div class="step" data-k="combine">
+<div class="q">Do you want to combine your debts into One Lower monthly payment?</div>
+<div class="hint">Remember: this is not a loan.</div>
+<div class="opts">
+<button type="button" class="opt" data-v="Yes, I want one easy payment"><span class="ic">🤝</span>Yes, I want one easy payment<span class="tick"></span></button>
+<button type="button" class="opt" data-v="No, I want a loan" data-dq="loan"><span class="ic">💵</span>No, I want a loan<span class="tick"></span></button>
+</div>
+</div>
+<div class="step" data-k="monthly_debt">
+<div class="q">How much are you paying monthly towards your high interest debts?</div>
+<div class="hint">A rough estimate is fine.</div>
+<div class="opts">
+<button type="button" class="opt" data-v="over $300 monthly"><span class="ic">💳</span>Over $300 Monthly<span class="tick"></span></button>
+<button type="button" class="opt" data-v="over $500 monthly"><span class="ic">📈</span>Over $500 Monthly<span class="tick"></span></button>
+<button type="button" class="opt" data-v="over $1,000 monthly"><span class="ic">⚠️</span>Over $1,000 Monthly<span class="tick"></span></button>
+<button type="button" class="opt" data-v="over $2,000 monthly"><span class="ic">🔥</span>Over $2,000 Monthly<span class="tick"></span></button>
+</div>
+</div>
+<div class="step" data-k="best_time">
+<div class="q">Best Time To Reach You?</div>
+<div class="hint">A debt expert will give you a quick, free call.</div>
+<div class="opts two">
+<button type="button" class="opt" data-v="9am - 11am"><span class="ic">🌅</span>9am - 11am<span class="tick"></span></button>
+<button type="button" class="opt" data-v="11am - 2pm"><span class="ic">☀️</span>11am - 2pm<span class="tick"></span></button>
+<button type="button" class="opt" data-v="2pm - 4pm"><span class="ic">🕑</span>2pm - 4pm<span class="tick"></span></button>
+<button type="button" class="opt" data-v="4pm - 6pm"><span class="ic">🌆</span>4pm - 6pm<span class="tick"></span></button>
+</div>
+<div class="opts" style="margin-top:10px"><button type="button" class="opt" data-v="anytime"><span class="ic">✅</span>Anytime<span class="tick"></span></button></div>
+</div>
+<div class="step" data-k="contact">
+<div class="q">Good news: you may qualify 🎉</div>
+<div class="hint">Where should our debt expert reach you? <span class="af">Tip: tap a field and your phone can auto-fill your details.</span></div>
+<div class="fields">
+<div class="row">
+<div class="f"><input id="first_name" name="given-name" autocomplete="given-name" placeholder=" " required><label for="first_name">First name</label></div>
+<div class="f"><input id="last_name" name="family-name" autocomplete="family-name" placeholder=" " required><label for="last_name">Last name</label></div>
+</div>
+<div class="f"><input id="phone" name="tel" type="tel" inputmode="tel" autocomplete="tel" placeholder=" " required><label for="phone">Phone number (required)</label></div>
+<div class="f"><input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder=" " required><label for="email">Email</label></div>
+<div class="f sel"><select id="province" name="address-level1" autocomplete="address-level1" required>
+<option value="" disabled selected></option>
+<option value="AB">Alberta</option><option value="BC">British Columbia</option><option value="MB">Manitoba</option><option value="NB">New Brunswick</option><option value="NL">Newfoundland and Labrador</option><option value="NS">Nova Scotia</option><option value="ON">Ontario</option><option value="PE">Prince Edward Island</option><option value="QC">Quebec</option><option value="SK">Saskatchewan</option><option value="NT">Northwest Territories</option><option value="NU">Nunavut</option><option value="YT">Yukon</option>
+</select><label for="province">Province</label></div>
+</div>
+<button class="cta" type="submit" id="go"><span class="spin"></span>See If I Qualify →</button>
+<p class="fine">By submitting, you agree DebtSolvers Financial may call, text or email you about your debt options. Free, no obligation. Your info is kept confidential and never sold. Reply STOP to opt out anytime. See our <a href="../privacy.html" style="color:inherit;text-decoration:underline" target="_blank">Privacy Policy</a>.</p>
+</div>
+<div class="step" data-k="done">
+<div class="done">
+<div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+<h2>You're all set, <span id="nm">friend</span>!</h2>
+<p>A DebtSolvers Financial debt expert will call you <b id="when">shortly</b>. Keep your phone close. The call is free and there's no obligation.</p>
+<a class="call" href="sms:+19055993328">💬 Can't wait? Text 905-599-3328</a>
+</div>
+</div>
+<div class="step" data-k="sorry">
+<div class="done">
+<div class="nope">🙏</div>
+<h2>Sorry, we can't help with this one</h2>
+<p id="whyno">Our program is for Canadians with $10,000+ in high interest debt.</p>
+<button type="button" class="call ghost" id="redo">← Change my answer</button>
+</div>
+</div>
+<button type="button" class="back" id="back">← Back</button>
+</form>
+</div>
+<div class="trust">
+<div class="t"><span class="e">🆓</span><b>Free</b>consultation</div>
+<div class="t"><span class="e">🔒</span><b>Private</b>&amp; confidential</div>
+<div class="t"><span class="e">⚡</span><b>10 sec</b>quiz</div>
+</div>
+<div class="how">
+<h3>How it works</h3>
+<ol>
+<li><span>1</span><div><b>Take the 10 second quiz.</b> Tell us a little about your debt.</div></li>
+<li><span>2</span><div><b>Talk to a debt expert.</b> A free call to see which options you qualify for.</div></li>
+<li><span>3</span><div><b>One affordable payment.</b> Say goodbye to high interest and hello to peace of mind.</div></li>
+</ol>
+</div>
+<footer>© DebtSolvers Financial · 3900 Confederation Pkwy, Mississauga, ON · admin@debtsolver.ca<br>Results vary by individual. Eligibility is determined after a free consultation.<br><a href="../privacy.html" style="color:inherit;text-decoration:underline">Privacy Policy</a></footer>
+</div>
+<script>
+(function(){
+var SUBMIT_URL = 'https://mscapital.app.n8n.cloud/webhook/debtsolvers-qualify-submit';
+var data = {}, steps = [].slice.call(document.querySelectorAll('.step')), cur = 0, total = 5, DONE = 5, SORRY = 6;
+var qs = new URLSearchParams(location.search);
+['gclid','gbraid','wbraid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){ if(qs.get(k)) data[k]=qs.get(k); });
+var sp = document.getElementById('sparks');
+for (var i=0;i<22;i++){ var s=document.createElement('div'); s.className='spark'; s.style.left=(Math.random()*100)+'%'; s.style.bottom=(-Math.random()*20)+'vh'; s.style.animationDuration=(9+Math.random()*12)+'s'; s.style.animationDelay=(-Math.random()*20)+'s'; sp.appendChild(s); }
+try { var saved = JSON.parse(localStorage.getItem('ds_contact') || '{}'); ['first_name','last_name','phone','email','province'].forEach(function(k){ if (saved[k]) document.getElementById(k).value = saved[k]; }); } catch(_){}
+var bar = document.getElementById('bar'), stepn = document.getElementById('stepn'), back = document.getElementById('back');
+function show(n){
+var old = steps[cur];
+old.classList.remove('on'); old.classList.add('out');
+setTimeout(function(){ old.classList.remove('out'); }, 280);
+setTimeout(function(){
+cur = n; var st = steps[cur]; st.classList.add('on');
+st.querySelectorAll('.opt').forEach(function(o,i){ o.style.animationDelay=(i*55)+'ms'; });
+var shown = Math.min(cur+1,total);
+bar.style.width = (cur>=total?100:(cur/total*100+10))+'%';
+stepn.textContent = cur===SORRY ? '' : cur>=total ? 'Done' : 'Step '+shown+' of '+total;
+back.style.display = (cur>0 && cur<total) ? 'inline-block' : 'none';
+}, 260);
+}
+steps[0].querySelectorAll('.opt').forEach(function(o,i){ o.style.animationDelay=(600+i*70)+'ms'; });
+bar.style.width='12%';
+var sorryFrom = 0;
+document.querySelectorAll('.step').forEach(function(st, idx){
+st.querySelectorAll('.opt').forEach(function(o){
+o.addEventListener('click', function(){
+st.querySelectorAll('.opt').forEach(function(x){ x.classList.remove('sel'); });
+o.classList.add('sel'); data[st.dataset.k] = o.dataset.v;
+if (navigator.vibrate) navigator.vibrate(12);
+if (o.dataset.dq) {
+document.getElementById('whyno').textContent = o.dataset.dq === 'loan'
+? "We don't offer loans. Our program helps Canadians combine $10,000+ of high interest debt into one lower monthly payment, without taking on a new loan."
+: 'Our program is for Canadians with $10,000+ in high interest loans, credit cards or lines of credit.';
+sorryFrom = idx; setTimeout(function(){ show(SORRY); }, 320); return;
+}
+setTimeout(function(){ show(idx+1); }, 320);
+});
+});
+});
+back.addEventListener('click', function(){ if(cur>0) show(cur-1); });
+document.getElementById('redo').addEventListener('click', function(){ show(sorryFrom); });
+function bad(id){ var f=document.getElementById(id).parentNode; f.classList.remove('bad'); void f.offsetWidth; f.classList.add('bad'); }
+document.getElementById('f').addEventListener('submit', function(e){
+e.preventDefault();
+var fn=document.getElementById('first_name').value.trim(), ln=document.getElementById('last_name').value.trim(),
+ph=document.getElementById('phone').value.replace(/\D/g,''), em=document.getElementById('email').value.trim(), pr=document.getElementById('province').value;
+var ok=true;
+if(!fn){bad('first_name');ok=false} if(!ln){bad('last_name');ok=false}
+if(ph.length===11 && ph[0]==='1') ph=ph.slice(1);
+if(ph.length!==10){bad('phone');ok=false}
+if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){bad('email');ok=false}
+if(!pr){bad('province');ok=false}
+if(!ok) return;
+data.first_name=fn; data.last_name=ln; data.phone=ph; data.email=em; data.province=pr; data.page=location.href;
+try { localStorage.setItem('ds_contact', JSON.stringify({first_name:fn,last_name:ln,phone:ph,email:em,province:pr})); } catch(_){}
+var go=document.getElementById('go'); go.disabled=true; go.classList.add('load');
+fetch(SUBMIT_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)})
+.catch(function(){})
+.then(function(){
+document.getElementById('nm').textContent=fn;
+var w={'anytime':'shortly','9am - 11am':'between 9 and 11am','11am - 2pm':'between 11am and 2pm','2pm - 4pm':'between 2 and 4pm','4pm - 6pm':'between 4 and 6pm'}[data.best_time]||'shortly';
+document.getElementById('when').textContent=w;
+show(DONE); confetti();
+try{ if(window.gtag) gtag('event','generate_lead'); }catch(_){}
+});
+});
+function confetti(){
+var cv=document.getElementById('confetti'), x=cv.getContext('2d'); cv.width=innerWidth; cv.height=innerHeight;
+var cols=['#4ade80','#2dd4bf','#60a5fa','#facc15','#ffffff'], P=[];
+for(var i=0;i<160;i++) P.push({x:cv.width/2,y:cv.height*0.35,vx:(Math.random()-.5)*14,vy:-Math.random()*14-4,r:Math.random()*6+3,c:cols[i%5],a:Math.random()*6,s:(Math.random()-.5)*.3});
+var n=0;(function f(){ x.clearRect(0,0,cv.width,cv.height); P.forEach(function(p){ p.vy+=.35; p.vx*=.99; p.x+=p.vx; p.y+=p.vy; p.a+=p.s; x.save(); x.translate(p.x,p.y); x.rotate(p.a); x.fillStyle=p.c; x.fillRect(-p.r/2,-p.r/4,p.r,p.r/2); x.restore(); }); if(++n<220) requestAnimationFrame(f); else x.clearRect(0,0,cv.width,cv.height); })();
+}
+})();
+</script>
+</body>
+</html>
