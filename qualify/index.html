@@ -254,6 +254,10 @@ var SUBMIT_URL = 'https://mscapital.app.n8n.cloud/webhook/debtsolvers-qualify-su
 var data = {}, steps = [].slice.call(document.querySelectorAll('.step')), cur = 0, total = 5, DONE = 5, SORRY = 6;
 var qs = new URLSearchParams(location.search);
 ['gclid','gbraid','wbraid','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){ if(qs.get(k)) data[k]=qs.get(k); });
+// Visit counter: records each visit and how far people get (no personal info), for the ad funnel report.
+var EVT = 'https://mscapital.app.n8n.cloud/webhook/debtsolvers-qualify-event', SID = Math.random().toString(36).slice(2, 10) + Date.now().toString(36), sentEv = {}, dqWhy = '';
+function track(e){ if (sentEv[e]) return; sentEv[e] = 1; try { var u = EVT + '?e=' + encodeURIComponent(e) + '&sid=' + SID; ['utm_source','utm_campaign','gclid','gbraid','wbraid'].forEach(function(k){ if (data[k]) u += '&' + k + '=' + encodeURIComponent(data[k]); }); (new Image()).src = u; } catch(_){} }
+track('view');
 var sp = document.getElementById('sparks');
 for (var i=0;i<22;i++){ var s=document.createElement('div'); s.className='spark'; s.style.left=(Math.random()*100)+'%'; s.style.bottom=(-Math.random()*20)+'vh'; s.style.animationDuration=(9+Math.random()*12)+'s'; s.style.animationDelay=(-Math.random()*20)+'s'; sp.appendChild(s); }
 try { var saved = JSON.parse(localStorage.getItem('ds_contact') || '{}'); ['first_name','last_name','phone','email','province'].forEach(function(k){ if (saved[k]) document.getElementById(k).value = saved[k]; }); } catch(_){}
@@ -264,6 +268,7 @@ old.classList.remove('on'); old.classList.add('out');
 setTimeout(function(){ old.classList.remove('out'); }, 280);
 setTimeout(function(){
 cur = n; var st = steps[cur]; st.classList.add('on');
+track(cur === SORRY ? 'dq_' + (dqWhy || 'other') : cur >= total ? 'submit' : 'step' + (cur + 1));
 st.querySelectorAll('.opt').forEach(function(o,i){ o.style.animationDelay=(i*55)+'ms'; });
 var shown = Math.min(cur+1,total);
 bar.style.width = (cur>=total?100:(cur/total*100+10))+'%';
@@ -284,7 +289,7 @@ if (o.dataset.dq) {
 document.getElementById('whyno').textContent = o.dataset.dq === 'loan'
 ? "We don't offer loans. Our program helps Canadians combine $10,000+ of high interest debt into one lower monthly payment, without taking on a new loan."
 : 'Our program is for Canadians with $10,000+ in high interest loans, credit cards or lines of credit.';
-sorryFrom = idx; setTimeout(function(){ show(SORRY); }, 320); return;
+dqWhy = o.dataset.dq; sorryFrom = idx; setTimeout(function(){ show(SORRY); }, 320); return;
 }
 setTimeout(function(){ show(idx+1); }, 320);
 });
