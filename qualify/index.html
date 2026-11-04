@@ -258,6 +258,15 @@ var qs = new URLSearchParams(location.search);
 var EVT = 'https://mscapital.app.n8n.cloud/webhook/debtsolvers-qualify-event', SID = Math.random().toString(36).slice(2, 10) + Date.now().toString(36), sentEv = {}, dqWhy = '';
 function track(e){ if (sentEv[e]) return; sentEv[e] = 1; try { var u = EVT + '?e=' + encodeURIComponent(e) + '&sid=' + SID; ['utm_source','utm_campaign','gclid','gbraid','wbraid'].forEach(function(k){ if (data[k]) u += '&' + k + '=' + encodeURIComponent(data[k]); }); (new Image()).src = u; } catch(_){} }
 track('view');
+// Exit pixel: when someone leaves or switches away, record the step they were on and seconds spent (e.g. left@step3@42s).
+var T0 = Date.now(), lastAt = 'step1', leftSent = false;
+function leave(){ if (leftSent || lastAt === 'submit') return; leftSent = true; var sec = Math.round((Date.now() - T0) / 1000);
+  var u = EVT + '?e=' + encodeURIComponent('left@' + lastAt + '@' + (sec > 600 ? '600+' : sec) + 's') + '&sid=' + SID + (data.utm_source ? '&utm_source=' + encodeURIComponent(data.utm_source) : '');
+  try { fetch(u, { mode: 'no-cors', keepalive: true }); } catch(_) { try { (new Image()).src = u; } catch(__){} } }
+document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden') leave(); else leftSent = false; });
+window.addEventListener('pagehide', leave);
+// Did they start typing their details, and which field stopped them?
+['first_name','last_name','phone','email','province'].forEach(function(id){ var el = document.getElementById(id); if (el) el.addEventListener('focus', function(){ track('form_start'); track('field_' + id); }); });
 var sp = document.getElementById('sparks');
 for (var i=0;i<22;i++){ var s=document.createElement('div'); s.className='spark'; s.style.left=(Math.random()*100)+'%'; s.style.bottom=(-Math.random()*20)+'vh'; s.style.animationDuration=(9+Math.random()*12)+'s'; s.style.animationDelay=(-Math.random()*20)+'s'; sp.appendChild(s); }
 try { var saved = JSON.parse(localStorage.getItem('ds_contact') || '{}'); ['first_name','last_name','phone','email','province'].forEach(function(k){ if (saved[k]) document.getElementById(k).value = saved[k]; }); } catch(_){}
@@ -268,7 +277,7 @@ old.classList.remove('on'); old.classList.add('out');
 setTimeout(function(){ old.classList.remove('out'); }, 280);
 setTimeout(function(){
 cur = n; var st = steps[cur]; st.classList.add('on');
-track(cur === SORRY ? 'dq_' + (dqWhy || 'other') : cur >= total ? 'submit' : 'step' + (cur + 1));
+lastAt = cur === SORRY ? 'dq_' + (dqWhy || 'other') : cur >= total ? 'submit' : 'step' + (cur + 1); track(lastAt);
 st.querySelectorAll('.opt').forEach(function(o,i){ o.style.animationDelay=(i*55)+'ms'; });
 var shown = Math.min(cur+1,total);
 bar.style.width = (cur>=total?100:(cur/total*100+10))+'%';
@@ -308,7 +317,7 @@ if(ph.length===11 && ph[0]==='1') ph=ph.slice(1);
 if(ph.length!==10){bad('phone');ok=false}
 if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){bad('email');ok=false}
 if(!pr){bad('province');ok=false}
-if(!ok) return;
+if(!ok){ track('form_error'); return; }
 data.first_name=fn; data.last_name=ln; data.phone=ph; data.email=em; data.province=pr; data.page=location.href;
 try { localStorage.setItem('ds_contact', JSON.stringify({first_name:fn,last_name:ln,phone:ph,email:em,province:pr})); } catch(_){}
 var go=document.getElementById('go'); go.disabled=true; go.classList.add('load');
